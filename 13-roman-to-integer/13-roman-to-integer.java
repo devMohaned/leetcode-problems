@@ -28,12 +28,18 @@ class Solution {
         roman.put("CD", 400);
         roman.put("CM", 900);
         
+        int N = s.length();
+                    System.out.println("N = " + N);
+
         int result = 0;
-        for(int i = 0; i < s.length();i++)
+        for(int i = 0; i < N;i++)
         {
             String subset = "";
-            if(i + 2 <= s.length()) // 7 <= 7
+            if(i + 2 <=  N) 
             subset = s.substring(i, i + 2);
+            
+            System.out.println("i + 2 = " + (i + 2));
+            
                 
             if(roman.containsKey(subset) && !subset.equals(""))
             {
