@@ -4,9 +4,8 @@ class Solution {
             return false;
         else if(x < 10)
             return true;
-        // 20005   50002  (20005 / (10^(5 length - 1)) = 2.0005 (int 2))
-        // 20005   50002  (20005 / 10^(5-2)) = 20
-        String value = String.valueOf(x);
+        
+      /*  String value = String.valueOf(x);
         String palindrome = "";
         for(int i = value.length() - 1; i >= 0; i--)
         {
@@ -16,6 +15,25 @@ class Solution {
         if(palindrome.equals(value))
             return true;
         
-        return false;
+        return false;*/
+        
+        int temp = x;
+        int reverse = 0;
+        // x % 10 = final digit 
+        // 123 (123 % 10) --> 3
+        while(temp > 0)
+        {
+            int lastDigit = temp % 10; // 2
+            reverse = (reverse*10) + lastDigit; // 0*10 + 3
+            temp = temp / 10; // 12
+        }
+        
+        if(x == reverse)
+            return true;
+        else
+            return false;
+        
+        
+        
     }
 }
