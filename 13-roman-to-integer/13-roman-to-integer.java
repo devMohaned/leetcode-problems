@@ -29,8 +29,6 @@ class Solution {
         roman.put("CM", 900);
         
         int N = s.length();
-                    System.out.println("N = " + N);
-
         int result = 0;
         for(int i = 0; i < N;i++)
         {
