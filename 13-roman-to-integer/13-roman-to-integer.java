@@ -36,10 +36,7 @@ class Solution {
         {
             String subset = "";
             if(i + 2 <=  N) 
-            subset = s.substring(i, i + 2);
-            
-            System.out.println("i + 2 = " + (i + 2));
-            
+            subset = s.substring(i, i + 2);            
                 
             if(roman.containsKey(subset) && !subset.equals(""))
             {
