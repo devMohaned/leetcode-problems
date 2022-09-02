@@ -37,9 +37,4 @@ class Solution {
         
         return isNegative ? reversed * -1 : reversed;
     }
-    public boolean isOverflow(int left, int right) {
-    return right > 0
-            ? Integer.MAX_VALUE - right < left
-            : Integer.MIN_VALUE - right > left;
-}
 }
