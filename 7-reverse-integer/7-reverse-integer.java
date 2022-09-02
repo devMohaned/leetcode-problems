@@ -10,14 +10,11 @@ class Solution {
         int reversed = 0;
         while(x > 0) 
         {
-                     int remainder = x % 10; 
- long test = (long)reversed * 10 + remainder;;
-if (test > Integer.MAX_VALUE || test < Integer.MIN_VALUE)
+        int remainder = x % 10; 
+        long test = (long)reversed * 10 + remainder;;
+        if (test > Integer.MAX_VALUE || test < Integer.MIN_VALUE)
             return 0;
-            
             reversed = reversed * 10 + remainder;
-            
-            System.out.println("Loop #" + reversed);
             x = x/10; 
         }
         
