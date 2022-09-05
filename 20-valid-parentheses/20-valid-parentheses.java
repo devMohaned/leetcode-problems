@@ -14,7 +14,6 @@ class Solution {
      else{
          Character top = stack.peek();
  if((top == '(' && chr == ')') || (top == '{'  && chr == '}') || (top == '[' &&  chr == ']')) {
-                        System.out.println("Open Tag: " + top + " & Closing Tag: " + chr );
                 stack.pop();
       }else return false;
                 }
