@@ -11,13 +11,15 @@ class Solution {
         
         while(i < N && j < N)
         {
-            if(!isVisitedMap.containsKey(s.charAt(j)))
+            Character leftChar = s.charAt(i);
+            Character rightChar = s.charAt(j);
+            if(!isVisitedMap.containsKey(rightChar))
             {
-                isVisitedMap.put(s.charAt(j), true);
+                isVisitedMap.put(rightChar, true);
                 j++;
                 max = Math.max(max, j - i);
             }else{
-                isVisitedMap.remove(s.charAt(i));
+                isVisitedMap.remove(leftChar);
                 i++;
             }
         }
