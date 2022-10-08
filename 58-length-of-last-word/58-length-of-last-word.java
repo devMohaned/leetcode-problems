@@ -13,11 +13,13 @@ class Solution {
             { return lengthCount;}
             i--;
         }
-        if(isWordFound)return lengthCount;
-        else return -1;
+         return lengthCount;
         
         
-     /*   while (i >= 0 )
+     /*  
+       int i = s.length() - 1;
+        boolean isWordFound = false;
+     while (i >= 0 )
         {
             if(s.charAt(i) != ' ')
             {
