@@ -1,6 +1,47 @@
 class Solution {
     public int lengthOfLastWord(String s) {
-        int i = s.length() - 1;
+        int N = s.length() - 1;
+        boolean isLastWordFound = false;
+        int wordLength = 0;
+        while(N >= 0)
+        {
+            if(s.charAt(N) != ' ')
+            {
+                isLastWordFound = true;
+                wordLength++;
+            }else if(isLastWordFound && s.charAt(N) == ' ')
+            {
+                return wordLength;
+            }
+            N--;
+        }
+        return wordLength;
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      /*  int i = s.length() - 1;
         boolean isWordFound = false;
         int lengthCount = 0;
         while (i >= 0 )
@@ -14,7 +55,7 @@ class Solution {
             i--;
         }
          return lengthCount;
-        
+        */
         
      /*  
        int i = s.length() - 1;
