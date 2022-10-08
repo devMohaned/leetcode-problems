@@ -2,7 +2,7 @@ class Solution {
     public int lengthOfLastWord(String s) {
         int i = s.length() - 1;
         boolean isWordFound = false;
-    /*    int lengthCount = 0;
+        int lengthCount = 0;
         while (i >= 0 )
         {
             if(s.charAt(i) != ' ')
@@ -12,10 +12,12 @@ class Solution {
             }else if(isWordFound && s.charAt(i) == ' ')
             { return lengthCount;}
             i--;
-        }*/
+        }
+        if(isWordFound)return lengthCount;
+        else return -1;
         
         
-        while (i >= 0 )
+     /*   while (i >= 0 )
         {
             if(s.charAt(i) != ' ')
             {
@@ -34,7 +36,7 @@ class Solution {
             i--;
         }
         
-        return -1;
+        return -1;*/
             
     }
 }
