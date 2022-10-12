@@ -11,8 +11,8 @@ class Solution {
         while(temp > 0)
         {
             int lastDigit = temp % 10;
-            palindrom = palindrom*10 + lastDigit;
-            temp = temp / 10;
+                       temp = temp / 10;
+ palindrom = palindrom*10 + lastDigit;
         }
         
         return palindrom == x;
