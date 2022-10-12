@@ -6,7 +6,7 @@ class Solution {
             return true;
         
         
-    /*    String numberInString = String.valueOf(x);
+        String numberInString = String.valueOf(x);
         String palindrom = "";
         for(int i = numberInString.length() - 1 ; i >= 0; i--)
         {
@@ -15,9 +15,9 @@ class Solution {
         }
         
         return palindrom.equals(numberInString);
-            */
+            
         
-        int palindrom = 0;
+     /*   int palindrom = 0;
         int temp = x;
         while(temp > 0)
         {
@@ -26,7 +26,7 @@ class Solution {
             temp = temp / 10;
         }
         
-        return palindrom == x;
+        return palindrom == x;*/
         
         
         
