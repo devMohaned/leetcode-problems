@@ -18,8 +18,7 @@ class Solution {
            return isValidHelper(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }
     
-    private boolean isValidHelper
-        (TreeNode node, long  lowest, long  highest)
+    private boolean isValidHelper(TreeNode node, long lowest, long highest)
     {
         if(node == null)
             return true;
