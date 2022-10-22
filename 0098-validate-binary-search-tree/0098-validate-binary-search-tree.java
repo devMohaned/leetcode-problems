@@ -15,10 +15,46 @@
  */
 class Solution {
     public boolean isValidBST(TreeNode root) {
-           return isValidHelper(root, Long.MIN_VALUE, Long.MAX_VALUE);
+        return isValidHelper(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }
     
-    private boolean isValidHelper(TreeNode node, long lowest, long highest)
+private boolean isValidHelper(TreeNode node, long lowest, long highest)
+    {
+        if(node == null)
+            return true;
+        if(!(node.val > lowest && node.val < highest))
+            return false;
+    
+        return 
+            (isValidHelper(node.left, lowest,node.val) && 
+            isValidHelper(node.right,node.val, highest));
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  /* 
+             return isValidHelper(root, Long.MIN_VALUE, Long.MAX_VALUE);
+
+  private boolean isValidHelper(TreeNode node, long lowest, long highest)
     {
         if(node == null)
             return true;
@@ -26,5 +62,6 @@ class Solution {
             return false;
         
         return (isValidHelper(node.left, lowest, node.val) && isValidHelper(node.right, node.val, highest));
-    }
+    }*/
+    
 }
