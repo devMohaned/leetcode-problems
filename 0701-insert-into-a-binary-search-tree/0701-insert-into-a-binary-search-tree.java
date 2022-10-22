@@ -25,6 +25,65 @@ class Solution {
             {
                 if(temp.right == null)
                 {
+                    temp.right = new TreeNode(val);
+                    return root;
+                }
+                temp = temp.right;
+            }else  if(val < temp.val)
+            {
+                if(temp.left == null)
+                {
+                    temp.left = new TreeNode(val);
+                    return root;
+                }
+                temp = temp.left;
+            }
+        }
+        
+        
+        return root;
+    }
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /*
+    
+    
+     if(root == null)
+            return new TreeNode(val);
+        
+        TreeNode temp = root;
+        while(temp != null)
+        {
+            if(val > temp.val)
+            {
+                if(temp.right == null)
+                {
                 temp.right = new TreeNode(val);
                 return root;
                 }
@@ -40,5 +99,7 @@ class Solution {
             }
         }
         return root;
-    }
-}
+    
+    
+    
+}*/
