@@ -47,7 +47,8 @@ class Solution {
             if(last2Digits == 0)return firstSection + " Hundred";
             
             return firstSection + " Hundred " + secondSection;
-  }else return findTwoDigitsString(number); // 23  **
+  }
+        return findTwoDigitsString(number); // 23  **
         
         
     }
