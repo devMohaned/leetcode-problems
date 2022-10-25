@@ -5,8 +5,6 @@ class Solution {
         fillConstants();
         if(num == 0)
         return "Zero";
-        else if(num > 0 && num <= 20)
-        return map.get(num);
         StringBuilder sb = new StringBuilder();
     
         
@@ -63,8 +61,6 @@ class Solution {
         
         if(num > 0)
         sb.append(findThreeDigits(num));
-        
-    //    String word = findThreeDigits(num);
         return sb.toString().strip();
     }
     
