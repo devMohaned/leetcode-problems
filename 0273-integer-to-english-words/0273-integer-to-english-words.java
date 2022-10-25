@@ -1,18 +1,13 @@
 class Solution {
     HashMap<Integer, String> map = new HashMap<Integer, String>();
-    StringBuilder sb = new StringBuilder();
 
     public String numberToWords(int num) {
         fillConstants();
-               if(num < 0) {
-                   num = num * -1 ;
-                sb.append("Negative ");
-               }
         if(num == 0)
-            return "Zero";
+        return "Zero";
         else if(num > 0 && num <= 20)
         return map.get(num);
-        
+        StringBuilder sb = new StringBuilder();
     
         
         // Long Max Value = 10^19 (extra digits)
