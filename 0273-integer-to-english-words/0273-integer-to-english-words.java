@@ -7,48 +7,19 @@ class Solution {
         return "Zero";
         StringBuilder sb = new StringBuilder();
     
-        
-        // Long Max Value = 10^19 (extra digits)
-        // Quintillion 10^18 
-        // Quadrillion 10^15
-        // Trillion    10^12
-        // Billion     10^9
-        // Million     10^6
-        // Thousand    10^3
-     /*   long QUINTRILLION_DIVIDER = 10^18;
-        long QUADRILLION_DIVIDER = 10^15;
-        long TRILLION_DIVIDER = 10^12;*/
         int BILLION_DIVIDER = 1000000000;
         int MILLION_DIVIDER = 1000000;
         int THOUSAND_DIVIDER = 1000;
         
-      /*  long quintillion3Digits = num / QUINTRILLION_DIVIDER;
-        num -= quintillion3Digits * QUINTRILLION_DIVIDER;
-        
-        long quadrillion3Digits = num / QUADRILLION_DIVIDER;
-        num -= quadrillion3Digits * QUADRILLION_DIVIDER;
-
-        long trillion3Digits = num / TRILLION_DIVIDER;
-               num -= trillion3Digits * TRILLION_DIVIDER;
-*/
         int billion3Digits = num / BILLION_DIVIDER;
-               num -= billion3Digits * BILLION_DIVIDER;
+        num -= billion3Digits * BILLION_DIVIDER;
 
         int million3Digits = num / MILLION_DIVIDER;
-                num -= million3Digits * MILLION_DIVIDER;
+        num -= million3Digits * MILLION_DIVIDER;
 
         int thousand3Digits = num / THOUSAND_DIVIDER;
         num -= thousand3Digits * THOUSAND_DIVIDER;
 
-    /*    if(quintillion3Digits > 0)
-        sb.append(findThreeDigits(quintillion3Digits) + " Quintillion ");
-         
-        if(quadrillion3Digits > 0)
-        sb.append(findThreeDigits(quadrillion3Digits) + " Quadrillion ");
-        
-        if(trillion3Digits > 0)
-        sb.append(findThreeDigits(trillion3Digits) + " Trillion ");
-        */
         if(billion3Digits > 0)
         sb.append(findThreeDigits(billion3Digits) + " Billion ");
         
