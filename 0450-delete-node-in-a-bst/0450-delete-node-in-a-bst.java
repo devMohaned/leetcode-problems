@@ -33,10 +33,11 @@ class Solution {
             
             // Has 2 children
             // Get Smallest In Size By Either Getting LeftMost/RightMost
-          //  TreeNode successor = getLeftMost(root.right);
-            TreeNode successor = getRightMost(root.left);
+            TreeNode successor = getLeftMost(root.right);
+         //   TreeNode successor = getRightMost(root.left);
             root.val = successor.val;
-            root.left = deleteNode(root.left, successor.val);
+     root.right = deleteNode(root.right, successor.val);  
+        //   root.left = deleteNode(root.left, successor.val);
         
         }
         
