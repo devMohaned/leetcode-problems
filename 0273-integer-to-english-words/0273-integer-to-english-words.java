@@ -11,10 +11,7 @@ class Solution {
     int HUNDRED = 100;
     
  public String numberToWords(int num) {
-        if (num == 0) return "Zero";
-        return helper(num); 
-        
-      
+       return num == 0 ? "Zero" :  helper(num); 
     }
     
    
