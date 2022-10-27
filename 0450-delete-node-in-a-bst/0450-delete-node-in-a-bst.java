@@ -14,8 +14,76 @@
  * }
  */
 class Solution {
-    public TreeNode deleteNode(TreeNode root, int val) {
-        if(root == null)
+  public TreeNode deleteNode(TreeNode root, int key) {
+        if(root==null) return root;
+        return iterative(root, key);
+    }
+	public TreeNode iterative(TreeNode root, int key) {
+        if(root==null) return root;
+        TreeNode cur=root, pre=null; //pre is cur's parent
+        while(cur!=null && cur.val!=key) {
+            pre=cur;
+            if(cur.val<key) cur=cur.right;
+            else cur=cur.left;
+        }
+        if(pre==null) return delete(cur); //case: tree=[0] key=0
+        if(pre.left==cur) pre.left=delete(cur);
+        else pre.right=delete(cur);
+        return root;
+    }
+    public TreeNode delete(TreeNode cur) {
+        if(cur==null) return null;
+        if(cur.left==null) return cur.right;
+        if(cur.right==null) return cur.left;
+        TreeNode next=cur.right;
+        while(next.left!=null) next=next.left; 
+        next.left=cur.left;
+        return cur.right;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public TreeNode getLeftMost(TreeNode root) {
+        while(root.left != null) {
+            root = root.left;
+        }
+        return root;
+    }
+    
+     public TreeNode getRightMost(TreeNode root) {
+        while(root.right != null) {
+            root = root.right;
+        }
+        return root;
+    }
+        
+        /*
+        
+        RECURSION SOLUTION
+           if(root == null)
             return root;
   
             // Go Right (Greater Than Case)
@@ -36,34 +104,17 @@ class Solution {
             TreeNode successor = getLeftMost(root.right);
          //   TreeNode successor = getRightMost(root.left);
             root.val = successor.val;
-     root.right = deleteNode(root.right, successor.val);  
+            root.right = deleteNode(root.right, successor.val);  
         //   root.left = deleteNode(root.left, successor.val);
         
         }
         
         
         return root;
-
         
         
         
-    }
-    
-    public TreeNode getLeftMost(TreeNode root) {
-        while(root.left != null) {
-            root = root.left;
-        }
-        return root;
-    }
-    
-     public TreeNode getRightMost(TreeNode root) {
-        while(root.right != null) {
-            root = root.right;
-        }
-        return root;
-    }
-        
-        
+        */
         
     
 }
