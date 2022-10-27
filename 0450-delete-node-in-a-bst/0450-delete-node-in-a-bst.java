@@ -14,34 +14,54 @@
  * }
  */
 class Solution {
-  public TreeNode deleteNode(TreeNode root, int key) {
-        if(root==null) return root;
-        return iterative(root, key);
-    }
-	public TreeNode iterative(TreeNode root, int key) {
-        if(root==null) return root;
-        TreeNode cur=root, pre=null; //pre is cur's parent
-        while(cur!=null && cur.val!=key) {
-            pre=cur;
-            if(cur.val<key) cur=cur.right;
-            else cur=cur.left;
+    public TreeNode deleteNode(TreeNode root, int val) {
+        if(root == null)
+            return root;
+        
+        if(val > root.val) root.right = deleteNode(root.right, val);
+        else if(val < root.val) root.left = deleteNode(root.left, val);
+        else{
+            // Equal
+            
+            // No Children
+            if(root.left == null && root.right == null)return null;
+            
+            // Single Child
+            if(root.left == null) return root.right;
+            else if(root.right == null) return root.left;
+            
+            
+            // 2 Children
+            TreeNode successor = getLeftMost(root.right);
+            root.val = successor.val;
+            root.right = deleteNode(root.right, root.val);
         }
-        if(pre==null) return delete(cur); //case: tree=[0] key=0
-        if(pre.left==cur) pre.left=delete(cur);
-        else pre.right=delete(cur);
+        
+        
+        return root;
+        
+        
+    }
+    
+    
+    private TreeNode getLeftMost(TreeNode root)
+    {
+        while(root.left != null){
+            root = root.left;
+        }
         return root;
     }
-    public TreeNode delete(TreeNode cur) {
-        if(cur==null) return null;
-        if(cur.left==null) return cur.right;
-        if(cur.right==null) return cur.left;
-        TreeNode next=cur.right;
-        while(next.left!=null) next=next.left; 
-        next.left=cur.left;
-        return cur.right;
+    
+      private TreeNode getRightMost(TreeNode root)
+    {
+        while(root.right != null){
+            root = root.right;
+        }
+        return root;
     }
     
     
+  
     
     
     
@@ -66,7 +86,16 @@ class Solution {
     
     
     
-    public TreeNode getLeftMost(TreeNode root) {
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /*  public TreeNode getLeftMost(TreeNode root) {
         while(root.left != null) {
             root = root.left;
         }
@@ -80,7 +109,7 @@ class Solution {
         return root;
     }
         
-        /*
+      
         
         RECURSION SOLUTION
            if(root == null)
