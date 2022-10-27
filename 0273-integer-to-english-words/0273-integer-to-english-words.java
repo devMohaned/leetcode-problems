@@ -1,130 +1,56 @@
 class Solution {
-    HashMap<Integer, String> map = new HashMap<Integer, String>();
-
-    public String numberToWords(int num) {
-        fillConstants();
-        if(num == 0)
-        return "Zero";
-        StringBuilder sb = new StringBuilder();
+  private final String[] belowTen = new String[] {"", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
     
-        int BILLION_DIVIDER = 1000000000;
-        int MILLION_DIVIDER = 1000000;
-        int THOUSAND_DIVIDER = 1000;
+    private final String[] belowTwenty = new String[] {"Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
+    
+    private final String[] belowHundred = new String[] {"", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
         
-        int billion3Digits = num / BILLION_DIVIDER;
-        num -= billion3Digits * BILLION_DIVIDER;
-
-        int million3Digits = num / MILLION_DIVIDER;
-        num -= million3Digits * MILLION_DIVIDER;
-
-        int thousand3Digits = num / THOUSAND_DIVIDER;
-        num -= thousand3Digits * THOUSAND_DIVIDER;
-
-        if(billion3Digits > 0)
-        sb.append(findThreeDigits(billion3Digits) + " Billion ");
+    int BILLION = 1000000000;
+    int MILLION = 1000000;
+    int THOUSAND = 1000;
+    int HUNDRED = 100;
+    
+ public String numberToWords(int num) {
+        if (num == 0) return "Zero";
+        return helper(num); 
         
-        if(million3Digits > 0)
-        sb.append(findThreeDigits(million3Digits) + " Million ");
-        
-        if(thousand3Digits > 0)
-        sb.append(findThreeDigits(thousand3Digits) + " Thousand ");
-        
-        
-        if(num > 0)
-        sb.append(findThreeDigits(num));
-        return sb.toString().strip();
+      
     }
     
-    private String findThreeDigits(int number){
-        // 123  ***
-        if(number >= 100 && number < 1000)
-        {
-            int firstDigit = number / 100;
-            int last2Digits = number % 100;
-            
-            String firstSection = map.get(firstDigit);
-            String secondSection = findTwoDigitsString(last2Digits);
-            if(last2Digits == 0)return firstSection + " Hundred";
-            
-            return firstSection + " Hundred " + secondSection;
-  }
-        return findTwoDigitsString(number); // 23  **
-        
-        
+   
+     private String helper(int num) {
+        StringBuilder result = new StringBuilder();
+        if (num < 10) 
+            result.append(belowTen[num]);
+        else if (num < 20) 
+            result.append(belowTwenty[num -10]);
+        else if (num < HUNDRED) 
+            result
+            .append(belowHundred[num/10])
+            .append(" ")
+            .append(helper(num % 10));
+        else if (num < THOUSAND) 
+            result
+            .append(helper(num/HUNDRED))
+            .append(" Hundred ")
+            .append(helper(num % HUNDRED));
+        else if (num < MILLION) 
+            result
+            .append(helper(num/THOUSAND))
+            .append(" Thousand ")
+            .append(helper(num % THOUSAND));
+        else if (num < BILLION)
+            result
+            .append(helper(num/MILLION))
+            .append(" Million ")
+            .append(helper(num % MILLION));
+        else result
+            .append(helper(num/BILLION))
+            .append(" Billion ")
+            .append(helper(num % BILLION));
+         
+        return result.toString().trim();
     }
-    
-    private String findTwoDigitsString(int number)
-    {
-        if(number > 0 && number <= 20)return map.get(number);
-        
-        if(number % 10 == 0)   // 40
-        return map.get(number);
-    
-        return map.get((number/10) * 10) + " " + map.get(number%10);
-            
-        
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    private void fillConstants(){
-        map.put(1,"One");
-        map.put(2,"Two");
-        map.put(3,"Three");
-        map.put(4,"Four");
-        map.put(5,"Five");
-        map.put(6,"Six");
-        map.put(7,"Seven");
-        map.put(8,"Eight");
-        map.put(9,"Nine");
-        map.put(10,"Ten");
-        map.put(11,"Eleven");
-        map.put(12,"Twelve");
-        map.put(13,"Thirteen");
-        map.put(14,"Fourteen");
-        map.put(15,"Fifteen");
-        map.put(16,"Sixteen");
-        map.put(17,"Seventeen");
-        map.put(18,"Eighteen");
-        map.put(19,"Nineteen");
-        map.put(20,"Twenty");
-        map.put(30,"Thirty");
-        map.put(40,"Forty");
-        map.put(50,"Fifty");
-        map.put(60,"Sixty");
-        map.put(70,"Seventy");
-        map.put(80,"Eighty");
-        map.put(90,"Ninety");
-    }
-    
     
     
 }
