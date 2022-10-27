@@ -32,9 +32,9 @@ class Solution {
             
             
             // 2 Children
-            TreeNode successor = getLeftMost(root.right);
+            TreeNode successor = getRightMost(root.left);
             root.val = successor.val;
-            root.right = deleteNode(root.right, root.val);
+            root.left = deleteNode(root.left, root.val);
         }
         
         
