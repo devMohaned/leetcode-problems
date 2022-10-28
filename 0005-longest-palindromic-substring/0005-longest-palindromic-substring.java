@@ -1,45 +1,39 @@
 class Solution {
     public String longestPalindrome(String s) {
-        int start = 0;
-        int end = s.length() - 1;
-        int len = Integer.MIN_VALUE;
-
-        int start2 = 0;
-
-        String res = "";
-        while (start <= s.length() - 1) {
-
-
-            while (start2 <= end) {
-                if (isPalindrome(start2, end, s)) {
-                    // we already have a palindrome of greater length
-                    if (len >= (end - start2 + 1)) {
-                        break;
-                    }
-
-                    res = s.substring(start2, end + 1);
-                    len = end - start2 + 1;
-                    break;
-                }
-                end--;
-            }
-            start2 = start + 1;
-            start++;
-            end = s.length() - 1;
+        int[] currentLongestIdx = new int[2];
+        int[] odd = new int[2];
+        int[] even = new int[2];
+        
+        for(int i = 0; i < s.length();i++)
+        {
+            odd = getLongestPalindromeIdx(s,i-1, i+1);
+            even = getLongestPalindromeIdx(s, i-1 ,i);
+            if(odd[1] - odd[0] > even[1] - even[0])
+               currentLongestIdx = updateLongestOrKeep(currentLongestIdx, odd);
+            else
+                currentLongestIdx = updateLongestOrKeep(currentLongestIdx, even);
         }
-
-        return res;
+        
+        
+        return s.substring(currentLongestIdx[0],currentLongestIdx[1]); // 2nd Parameter is exclusive (i.e: 'ABCD' -> substring(0,3) = 'ABC')
     }
-    boolean isPalindrome(int start, int end, String s) {
-
-        while (start < end) {
-            if (s.charAt(start) != s.charAt(end)) {
-                return false;
+    
+    private int[] getLongestPalindromeIdx(String s, int leftIdx, int rightIdx)
+    {
+            while(leftIdx >= 0 && rightIdx < s.length())
+            {
+                
+                if(s.charAt(leftIdx) != s.charAt(rightIdx))break;
+                
+                leftIdx--;
+                rightIdx++;
             }
-            start++;
-            end--;
-        }
-
-        return true;
+            return new int[]{leftIdx + 1, rightIdx}; // (2nd Parameter should be - 1, but due to the influence of substring's 2nd parameter, which is exclusive)
+    }
+    
+    private int[] updateLongestOrKeep(int[] arr, int[] oddOrEven){
+        if(arr[1] - arr[0] < oddOrEven[1] - oddOrEven[0])
+            return oddOrEven;
+        return arr;
     }
 }
