@@ -2,7 +2,7 @@ class Solution {
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         /*
         Median Of ODD = SIZE + 1 / 2  => ITS INDEX -1
-        Median OF EVEN = SIZE /2 => ITS INDECES [-1, N/A]
+        Median OF EVEN = SIZE /2 => ITS INDICES [-1, N/A]
         */
        
         int M = nums1.length;
@@ -36,9 +36,8 @@ class Solution {
 }
         if(T % 2 == 0)
         {
-            double leftSide = merged[((T/2) - 1)];
-            double rightSide = merged[T/2];
-            return (leftSide + rightSide)/2;
+
+            return (merged[((T/2) - 1)] + merged[T/2])/2;
         }else{
             return merged[((T+1)/2) - 1];
         }
