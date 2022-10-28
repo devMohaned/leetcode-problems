@@ -36,7 +36,7 @@ class Solution {
             if(i + 2 <=  N) 
             subset = s.substring(i, i + 2);            
                 
-            if(roman.containsKey(subset) && !subset.equals(""))
+            if(!subset.equals("")&& roman.containsKey(subset) )
             {
                 result += roman.get(subset);
                 i++;
