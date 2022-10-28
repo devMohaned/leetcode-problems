@@ -15,7 +15,7 @@ class Solution {
         }
         
         
-        return s.substring(currentLongestIdx[0],currentLongestIdx[1]);
+        return s.substring(currentLongestIdx[0],currentLongestIdx[1]); // 2nd Parameter is exclusive (i.e: 'ABCD' -> substring(0,3) = 'ABC')
     }
     
     private int[] getLongestPalindromeIdx(String s, int leftIdx, int rightIdx)
@@ -28,7 +28,7 @@ class Solution {
                 leftIdx--;
                 rightIdx++;
             }
-            return new int[]{leftIdx + 1, rightIdx};
+            return new int[]{leftIdx + 1, rightIdx}; // (2nd Parameter should be - 1, but due to the influence of substring's 2nd parameter, which is exclusive)
     }
     
     private int[] updateLongestOrKeep(int[] arr, int[] oddOrEven){
