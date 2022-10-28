@@ -3,9 +3,11 @@ class Solution {
         boolean isNegative = false;
         if(x < 0)
         {
-            isNegative = true;
+        isNegative = true;
         x *= -1;
         }
+        
+        
         int reversed = 0;
         while(x > 0) 
         {
