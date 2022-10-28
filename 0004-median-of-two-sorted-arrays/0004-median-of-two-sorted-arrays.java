@@ -15,7 +15,7 @@ class Solution {
         int i =0;
         while(leftIdx < M || rightIdx < N)
         {
-           int left = Integer.MAX_VALUE;
+        int left = Integer.MAX_VALUE;
         int right = Integer.MAX_VALUE;
             if(leftIdx < M){
                left = nums1[leftIdx];
@@ -27,20 +27,17 @@ class Solution {
             
             if(left > right)
             {
-                merged[i] = right;
-                              rightIdx++;
-}else {
-                    merged[i] = left;      leftIdx++;
- }
+                merged[i] = right;       
+                rightIdx++;
+            }else {   
+                merged[i] = left;   
+                leftIdx++;
+            }
                 i++;
 }
-        if(T % 2 == 0)
-        {
-
-            return (merged[((T/2) - 1)] + merged[T/2])/2;
-        }else{
-            return merged[((T+1)/2) - 1];
-        }
+        if(T % 2 == 0)   return (merged[((T/2) - 1)] + merged[T/2])/2;
+        else return merged[((T+1)/2) - 1];
+        
               
     }
 }
