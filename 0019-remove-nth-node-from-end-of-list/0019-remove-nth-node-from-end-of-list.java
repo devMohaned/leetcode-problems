@@ -13,6 +13,7 @@ class Solution {
         ListNode trav = head;
         ListNode frontTrav = head;
         int travCount = 0;
+        
         while(++travCount <= n) frontTrav = frontTrav.next;
         
          if(frontTrav == null) return head.next;
