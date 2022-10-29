@@ -1,23 +1,23 @@
 class Solution {
     public int threeSumClosest(int[] nums, int target) {
         Arrays.sort(nums);
-               int N = nums.length;
-        int minDiff=Integer.MAX_VALUE;
-        int ans=0;
+        int N = nums.length;
+        int smallestDifference = Integer.MAX_VALUE;
+        int answer = 0;
         
-        for(int i = 0;i < N; i++)
+ for(int i = 0;i < N; i++)
         {
             int currentValue = nums[i];
             int left = i + 1;
             int right = N - 1;
-            
+
             while(left < right)
             {
                 int sum = currentValue + nums[left] + nums[right] ;
-                if(Math.abs(target - sum) < minDiff)
+                if(Math.abs(target - sum) < smallestDifference)
                 {
-                    ans = sum;
-                    minDiff = Math.abs(target - sum);
+                    answer = sum;
+                    smallestDifference = Math.abs(target - sum);
                 }
                 
 
@@ -32,7 +32,7 @@ class Solution {
             
         }
         
-        return ans;
+        return answer;
     }
     
 }
