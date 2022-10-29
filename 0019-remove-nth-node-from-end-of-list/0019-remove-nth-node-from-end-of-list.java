@@ -19,12 +19,8 @@ class Solution {
             frontTrav = frontTrav.next;
             travCount++;
         }
-         if(frontTrav == null)
-            {
-             if(head.next != null)
-                return head.next;
-             else return null;
-            }
+         if(frontTrav == null)return head.next;
+            
         
         while(frontTrav.next != null)
         {
