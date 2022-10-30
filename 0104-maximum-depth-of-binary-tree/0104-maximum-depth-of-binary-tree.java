@@ -19,10 +19,7 @@ class Solution {
     }
     
     private int getMaxDepth(TreeNode root, int count){
-          if(root == null)
-            return count;
-
-        return Math.max(getMaxDepth(root.left, count+1), getMaxDepth(root.right, count+1));
+          return root == null ? count : Math.max(getMaxDepth(root.left, count+1), getMaxDepth(root.right, count+1));
         
     }
 }
