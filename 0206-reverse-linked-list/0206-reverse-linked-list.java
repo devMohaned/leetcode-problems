@@ -10,9 +10,6 @@
  */
 class Solution {
     public ListNode reverseList(ListNode head) {
-        if(head == null || head.next == null)
-            return head;
-        
         ListNode pre = null;
         ListNode current = head;
         while(current != null)
@@ -26,12 +23,5 @@ class Solution {
         return pre;
             
             
-    }
-    
-    private ListNode reversed(ListNode pre, ListNode next){
-        if(pre!= null) next.next = new ListNode(pre.val);
-        if(pre != null) pre.next = null;
-        return next;
-        
     }
 }
