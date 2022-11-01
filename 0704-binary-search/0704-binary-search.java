@@ -8,12 +8,9 @@ class Solution {
         while(leftIdx <= rightIdx)
         {
             middle = (leftIdx + rightIdx)/2;
-            if(nums[middle] == target)
-                return middle;
-            else if(nums[middle] > target)
-                rightIdx = middle - 1;
-            else if(nums[middle] < target)
-                leftIdx = middle + 1;
+            if(nums[middle] == target)return middle;
+            else if(nums[middle] > target)rightIdx = middle - 1;
+            else if(nums[middle] < target)leftIdx = middle + 1;
         }
         return -1;
     }
