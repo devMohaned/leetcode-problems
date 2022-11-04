@@ -6,9 +6,9 @@ class Solution {
         while(leftIdx <= rightIdx)
         {
             middleIdx = (leftIdx + rightIdx)/2;
-            if(nums[middleIdx] == target)return middleIdx;
+            if(nums[middleIdx] > target)rightIdx = middleIdx - 1 ;
             else if(nums[middleIdx] < target)leftIdx = middleIdx +1;
-            else rightIdx = middleIdx - 1;
+            else return middleIdx;
         }
         return leftIdx;
     }
