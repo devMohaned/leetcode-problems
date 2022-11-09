@@ -10,7 +10,7 @@ class Solution {
 	}
  
 	public boolean checkIP4(String IP) {
-		if (IP.charAt(IP.length() - 1) == '.')    //Test case is to check pattern like "1.1.1."
+if (IP.charAt(IP.length() - 1) == '.')    //Test case is to check pattern like "1.1.1."
 			return false;
 		String[] numbers = IP.split("\\.");       // Split with "."
 		if (numbers == null || numbers.length != 4)    // After split array length should be 4.
