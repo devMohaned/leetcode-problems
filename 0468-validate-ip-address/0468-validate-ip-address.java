@@ -26,10 +26,11 @@ if (IP.charAt(IP.length() - 1) == '.')    //Test case is to check pattern like "
 				if (c < '0' || c > '9')
 					return false;
 				val = val * 10 + (int) (c - '0');
+                if (val < 0 || val > 255) // Number should fall between 0 to 255.
+				return false;
 			}
  
-			if (val < 0 || val > 255) // Number should fall between 0 to 255.
-				return false;
+			
 		}
 		return true;
 	}
