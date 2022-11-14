@@ -1,8 +1,6 @@
 class Solution {
     public double[] convertTemperature(double celsius) {
-        double fran = toFran(celsius);    
-        double kalv = toKalv(celsius);    
-        return new double[]{kalv,fran};
+        return new double[]{toKalv(celsius),toFran(celsius)};
     }
     
     private double toFran(double num)
