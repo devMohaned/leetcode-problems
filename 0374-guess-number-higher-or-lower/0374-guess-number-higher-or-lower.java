@@ -11,8 +11,8 @@ public class Solution extends GuessGame {
     public int guessNumber(int n) {
         int left = 1;
         int right = n;
-        int mid = right /2;
-        int guessed = guess(mid);
+        int mid = -1;
+        int guessed = -1;
         while(left <= right)
         {
             mid = left + (right - left) /2;
