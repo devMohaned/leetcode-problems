@@ -5,11 +5,7 @@ class Solution {
         for(int num : arr)
             map.put(num, map.getOrDefault(num,0) + 1);
         
-        HashSet<Integer> uniqueValues = new HashSet();
-        for(int value : map.values())
-                    uniqueValues.add(value);
-        
-        return map.size() == uniqueValues.size();
+        return map.size() == new HashSet<>(map.values()).size();
             
         
     }
