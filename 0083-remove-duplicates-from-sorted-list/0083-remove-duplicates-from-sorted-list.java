@@ -9,6 +9,8 @@
  * }
  */
 class Solution {
+    // Time Complexity: O(N) where N is the number of nodes.
+    // Space Complexity: O(1), no extra space
     public ListNode deleteDuplicates(ListNode head) {
         if (head == null) return null;
         
