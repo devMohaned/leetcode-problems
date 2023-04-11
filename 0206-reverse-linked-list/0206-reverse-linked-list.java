@@ -9,6 +9,8 @@
  * }
  */
 class Solution {
+    // Time Complexity: O(N) where N is the number of nodes.
+    // Space Complexity: O(N) where N is the number of nodes required to be saved in memory as extra space.
     public ListNode reverseList(ListNode head) {
      
         ListNode pre = null;
