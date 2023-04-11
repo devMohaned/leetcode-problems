@@ -1,4 +1,6 @@
 class Solution {
+    // Time Complexity: O(N) where N is size of array.
+    // Space Complexity: O(1), no extra space.
     public int findLengthOfLCIS(int[] nums) {
         int max = 1;
         int size = 1;
