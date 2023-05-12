@@ -16,6 +16,7 @@ class Solution {
             letterCountsArr = null;
         }
         result.addAll(map.values());
+        map.clear();
         return result;
     }
 }
