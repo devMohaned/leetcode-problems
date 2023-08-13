@@ -8,7 +8,7 @@ class Solution {
            for(int col =0; col < 9; col++)
            {
                char number = board[row][col];
-               if(number == '.') continue;
+               if(number != '.') {
                
                boolean rowDoesNotContainsRepetition = visitedSet.add("Row Visited " + row + "Has Number: " + number);
                boolean colDoesNotContainsRepetition = visitedSet.add("Columns Visited" + col + "Has Number: " + number);
@@ -16,6 +16,7 @@ class Solution {
                
                if(!rowDoesNotContainsRepetition || !colDoesNotContainsRepetition || !subboxesDoesNotContainRepetition)
                    return false;
+               }
            }
        }
         return true;
