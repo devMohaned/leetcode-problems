@@ -9,12 +9,11 @@ class Solution {
            {
                char number = board[row][col];
                if(number != '.') {
-               
-               
+               boolean rowDoesNotContainsRepetition = visitedSet.add("Row Visited " + row + "Has Number: " + number);
                boolean colDoesNotContainsRepetition = visitedSet.add("Columns Visited" + col + "Has Number: " + number);
                boolean subboxesDoesNotContainRepetition = visitedSet.add("Square (" + row/3 +", " + col/3 + ") Has Number:" + number);
                
-               if(!visitedSet.add("Row Visited " + row + "Has Number: " + number) || !colDoesNotContainsRepetition || !subboxesDoesNotContainRepetition)
+               if(!rowDoesNotContainsRepetition || !colDoesNotContainsRepetition || !subboxesDoesNotContainRepetition)
                    return false;
                }
            }
