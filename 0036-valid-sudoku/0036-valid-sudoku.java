@@ -10,9 +10,9 @@ class Solution {
                char number = board[row][col];
                if(number == '.') continue;
                
-               boolean rowDoesNotContainsRepetition = visitedSet.add("R"+row + number);
-               boolean colDoesNotContainsRepetition = visitedSet.add("C"+col + number);
-               boolean subboxesDoesNotContainRepetition = visitedSet.add("S" + row/3 + col/3 + number);
+               boolean rowDoesNotContainsRepetition = visitedSet.add("Row Visited " + row + "Has Number: " + number);
+               boolean colDoesNotContainsRepetition = visitedSet.add("Columns Visited" + col + "Has Number: " + number);
+               boolean subboxesDoesNotContainRepetition = visitedSet.add("Square (" + row/3 +", " + col/3 + ") Has Number:" + number);
                
                if(!rowDoesNotContainsRepetition || !colDoesNotContainsRepetition || !subboxesDoesNotContainRepetition)
                    return false;
