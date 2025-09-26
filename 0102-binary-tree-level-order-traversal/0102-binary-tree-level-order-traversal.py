@@ -17,9 +17,9 @@ class Solution:
                 node = queue.popleft()
                 level.append(node.val)
 
-                if(node and node.left):
+                if(node.left):
                     queue.append(node.left)
-                if(node and node.right):
+                if(node.right):
                     queue.append(node.right)
             result.append(level)
         return result
