@@ -7,27 +7,28 @@
 
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
-        stack = [root]
         parent = {root: None}
+        stack = [root]
 
-        while(p not in parent and q not in parent):
-            current = stack.pop()
-            if(current.left):
-                stack.append(current.left)
-                parent[current.left] = current
-            if(current.right):
-                stack.append(current.right)
-                parent[current.right] = current
+        # Build parent pointers until both p and q are discovered
+        while p not in parent or q not in parent:
+            node = stack.pop()
+            if node.left:
+                parent[node.left] = node
+                stack.append(node.left)
+            if node.right:
+                parent[node.right] = node
+                stack.append(node.right)
 
-        
+        # Collect ancestors of p
         ancestors = set()
-        pNode = p
-        while (pNode):
-            ancestors.add(pNode)
-            pNode = parent[pNode]
-        
-        qNode = q
-        while qNode not in ancestors:
-            qNode = parent[qNode]
+        cur = p
+        while cur:
+            ancestors.add(cur)
+            cur = parent[cur]
 
-        return qNode
+        # First ancestor of q that appears in p's ancestors is the LCA
+        cur = q
+        while cur not in ancestors:
+            cur = parent[cur]
+        return cur
